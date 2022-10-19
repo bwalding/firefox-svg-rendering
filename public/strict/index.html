@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #222;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: #ddd;
+        }
+      }
+
+      .theme-light {
+        background-color: #ddd;
+      }
+
+      .theme-dark {
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>STRICT CSP</h1>
+    <p>
+      HTML and SVGs are rendered with strict CSP.
+      <ul>
+        <li>HTML (this page) - <code>"default-src 'none' 'unsafe-inline'; img-src data: *; style-src: 'unsafe-inline"</code></li>
+        <li>SVG - <code>"default-src 'none'; img-src data:"</code></li>
+      </ul>
+    </p>
+    <br />
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th style="width: 25%">Picture + Source Set (theme aware)</th>
+          <td>
+            <picture>
+              <source
+                media="(prefers-color-scheme: dark)"
+                srcset="logo-pr-wide-dark.svg"
+              />
+              <source
+                media="(prefers-color-scheme: light)"
+                srcset="logo-pr-wide-light.svg"
+              />
+              <img src="logo-pr-wide-light.svg" />
+            </picture>
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 25%">Image - Light (always light theme)</th>
+          <td class="theme-light">
+            <img src="logo-pr-wide-light.svg" />
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 25%">Image - Dark (always dark theme)</th>
+          <td class="theme-dark">
+            <img src="logo-pr-wide-dark.svg" />
+          </td>
+        </tr>
+      </thead>
+    </table>
+    <h3>Sample</h3>
+    <p>
+      First load - on first load (private session) 
+      <br/>
+      <img src="example-before.png" style='width: 25%'/>
+    </p>
+    <p>
+      Reload (forced or normal)
+      <br/>
+      <img src="example-after.png" style='width: 25%'/>
+    </p>
+
+  </body>
+</html>

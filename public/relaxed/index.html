@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #222;
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: #ddd;
+        }
+      }
+
+      .theme-light {
+        background-color: #ddd;
+      }
+
+      .theme-dark {
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RELAXED CSP</h1>
+    <p>
+      HTML and SVGs are rendered with no CSP.
+      <ul>
+        <li>HTML (this page) - No CSP applied</li>
+        <li>SVG - No CSP applied</li>
+      </ul>
+    </p>
+    <br />
+    <table style="width: 100%">
+      <thead>
+        <tr>
+          <th style="width: 25%">Picture + Source Set (theme aware)</th>
+          <td>
+            <picture>
+              <source
+                media="(prefers-color-scheme: dark)"
+                srcset="logo-pr-wide-dark.svg"
+              />
+              <source
+                media="(prefers-color-scheme: light)"
+                srcset="logo-pr-wide-light.svg"
+              />
+              <img src="logo-pr-wide-light.svg" />
+            </picture>
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 25%">Image - Light (always light theme)</th>
+          <td class="theme-light">
+            <img src="logo-pr-wide-light.svg" />
+          </td>
+        </tr>
+        <tr>
+          <th style="width: 25%">Image - Dark (always dark theme)</th>
+          <td class="theme-dark">
+            <img src="logo-pr-wide-dark.svg" />
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </body>
+</html>
