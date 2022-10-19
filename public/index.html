@@ -3,15 +3,14 @@
 
 <body>
     <p>
-        There is a bug on Firefox with strict CSP rules (which is what GitHub uses
-        from their Camo service). The end-result is that images render without
+        There seems to be a bug in Firefox with strict CSP rules (which is what GitHub uses
+        from their Camo service).
+    </p>
+    <p> The end-result is that images render without
         inline styles (colour / gradients) being shown, thus yielding black logos.
-        It is very unclear as to why this happens - but it seems to be CSP +
-        Firefox + &lt;picture/&gt; elements interacting in a way that was not
-        immediately obvious. Reproduction is straightforward: `make server` and
-        then load http://localhost:8000/ in your Firefox browser - many of the
-        images will be blacked out (doing a forced reload fixes the issue!).
-      </p>
+    </p>
+
+    <p> This problem does not occur in Chrome / Safari</p>
 
      
 
